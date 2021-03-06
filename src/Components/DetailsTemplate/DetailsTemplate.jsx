@@ -25,7 +25,7 @@ const DetailsTemplate = ({details}) => {
         <div key={details.id} className="movie-card">
 
             <div className="container1">
-                <a href="#"><img src={`http://image.tmdb.org/t/p/original/${poster_path}`}
+                <a href="/#"><img src={`http://image.tmdb.org/t/p/original/${poster_path}`}
                                  alt="cover" className="cover"/></a>
                 <div className="hero">
                     <img src={`http://image.tmdb.org/t/p/original/${backdrop_path}`} className="backPost" alt="backPost"/>

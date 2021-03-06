@@ -1,6 +1,7 @@
 import React from "react";
 import "../Films/FilmsCard.scss";
 import {Link} from "react-router-dom";
+
 const FilmsTemplate = ({currentFilms, filmGenre}) => {
     return (
         <div className="container">{currentFilms.map((film) => {
@@ -12,8 +13,7 @@ const FilmsTemplate = ({currentFilms, filmGenre}) => {
                 overview,
                 backdrop_path,
                 vote_average,
-                vote_count,
-                original_language
+                vote_count
             } = film;
             return (
                 <div key={film.id} className="movie_card" id="bright">
@@ -34,7 +34,9 @@ const FilmsTemplate = ({currentFilms, filmGenre}) => {
                             <p className="text">
                                 {overview}
                             </p>
-                            <Link to={`/details/${film.id}`}><button type="button">Details</button></Link>
+                            <Link to={`/details/${film.id}`}>
+                                <button type="button">Details</button>
+                            </Link>
                         </div>
 
                     </div>

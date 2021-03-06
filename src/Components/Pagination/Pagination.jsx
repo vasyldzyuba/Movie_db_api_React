@@ -11,7 +11,7 @@ const Pagination = ({filmsPerPage, totalFilms, paginate}) => {
     return (<div>
         <ul className="pag-ul">{pageNumbers.map(number => (
             <li key={number}>
-                <a onClick={() => paginate(number)} href="#">{number}</a>
+                <a onClick={() => paginate(number)} href="/#">{number}</a>
             </li>
         ))}</ul>
     </div>);
