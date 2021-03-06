@@ -1,7 +1,7 @@
 import React from "react";
-import "../FilmsCard/FilmsCard.scss";
+import "../Films/FilmsCard.scss";
 import {Link} from "react-router-dom";
-const Films = ({currentFilms, filmGenre}) => {
+const FilmsTemplate = ({currentFilms, filmGenre}) => {
     return (
         <div className="container">{currentFilms.map((film) => {
             const {
@@ -47,4 +47,4 @@ const Films = ({currentFilms, filmGenre}) => {
         </div>
     );
 };
-export default Films;
+export default FilmsTemplate;

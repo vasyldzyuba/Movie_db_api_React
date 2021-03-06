@@ -1,5 +1,5 @@
 import React from "react";
-import "../FilmsCard/FilmsCard.scss";
+import "../Films/FilmsCard.scss";
 
 const Loader = () => {
     return(<div className="lds-dual-ring"></div>);

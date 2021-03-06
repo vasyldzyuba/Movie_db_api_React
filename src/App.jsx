@@ -1,5 +1,5 @@
 import React from "react";
-import FilmsCard from "./Components/FilmsCard/FilmsCard";
+import FilmsCard from "./Components/Films/FilmsCard";
 import Details from "./Components/Details/Details";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 

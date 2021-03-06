@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {getFilms, getGenres} from "../../AxiosRequests/http";
 import Pagination from "../Pagination/Pagination";
-import Films from "../Films/Films";
+import FilmsTemplate from "../FilmsTemplate/FilmsTemplate";
 import NothingFounded from "../NothingFounded/NothingFounded";
 import Loader from "../Loader/Loader";
 
-import "../../Components/FilmsCard/FilmsCard.scss";
+import ".//FilmsCard.scss";
 
 export default function FilmsCard() {
 
@@ -50,7 +50,7 @@ export default function FilmsCard() {
                 <input type="text" className="searchTerm" value={searchTerm}
                        onChange={handleChange} placeholder="Search movie"/>
             </div>
-            <Films currentFilms={currentFilms} filmGenre={filmGenre}/>
+            <FilmsTemplate currentFilms={currentFilms} filmGenre={filmGenre}/>
             {!films.length ? <NothingFounded/> :
                 <Pagination filmsPerPage={filmsPerPage} totalFilms={films.length} paginate={paginate}/>}
         </>
