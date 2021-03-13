@@ -5,10 +5,12 @@ const getFilms = async (setFilms) => {
         await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=62ea0c662081d0b490eb46e2ff1746ef&language=en-US')
             .then((response) => {
                 setFilms(response.data.results);
+                // console.log(response.data.results);
             })
     } catch (e) {
         console.log(e);
     }
+
 };
 
 
@@ -22,6 +24,9 @@ const getDetails = async (setDetails, match) => {
         console.log(e);
     }
 };
+
+
+
 
 
 const getGenres = async (setFilmGenre) => {
