@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {getFilms, getGenres} from "../../AxiosRequests/http";
+import {getFilms, getGenres, getAllFilms} from "../../AxiosRequests/http";
 import Pagination from "../Pagination/Pagination";
 import FilmsTemplate from "../FilmsTemplate/FilmsTemplate";
 import NothingFounded from "../NothingFounded/NothingFounded";
@@ -15,7 +15,6 @@ export default function FilmsCard() {
     const [allFilms, setAllFilms] = useState([]);
     const [defaultGenre] = useState("All Genres");
     const [searchTermSelect, setSearchTermSelect] = useState("");
-    const [dropTerm, setDropTerm] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [filmsPerPage] = useState(6);
     const [lgShow, setLgShow] = useState(false);
@@ -32,15 +31,15 @@ export default function FilmsCard() {
         setSearchTermSelect(event.target.value);
 
     };
+
     let results;
     const getSelectedResults = () => {
+        getAllFilms(setAllFilms);
         results = searchTermSelect === "All Genres"
             ? films
-            : films.filter((el) => el.genre_ids.find((elem) => searchTermSelect.includes(elem))
+            : allFilms.filter((el) => el.genre_ids.find((elem) => searchTermSelect.includes(elem))
             )
         setFilms(results);
-        console.log(searchTermSelect);
-        console.log(results);
     }
 
     const getSearchResults = () => {
@@ -54,16 +53,15 @@ export default function FilmsCard() {
 
 
     useEffect(() => {
-        searchTermSelect === "All Genres" ? getFilms(setFilms) && getGenres(setFilmGenre) && console.log("render1")
+        searchTermSelect === "All Genres" ? getFilms(setFilms) && getGenres(setFilmGenre)
             : getSelectedResults();
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTermSelect]);
 
     useEffect(() => {
-        !searchTerm ? getFilms(setFilms) && getGenres(setFilmGenre) && console.log("render2")
+        !searchTerm ? getFilms(setFilms) && getGenres(setFilmGenre)
             : getSearchResults();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-
     }, [searchTerm]);
 
 
@@ -99,6 +97,7 @@ export default function FilmsCard() {
             {!searchTerm.length ?
                 <Pagination filmsPerPage={filmsPerPage} totalFilms={films.length} paginate={paginate}/>
                 : <NothingFounded/>}
+            {!results ? <NothingFounded/> : null}
         </>
     );
 }
