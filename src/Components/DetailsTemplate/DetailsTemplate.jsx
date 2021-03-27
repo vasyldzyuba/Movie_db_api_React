@@ -82,6 +82,7 @@ const DetailsTemplate = ({details}) => {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };

@@ -9,11 +9,15 @@
 
 body {
   background: #43423E;
+  padding-top: 10px;
 }
 
 a {
   text-decoration: none;
   color: #5C7FB8
+}
+.btn-fav{
+  margin-left:20px;
 }
 
 a:hover {
@@ -49,6 +53,24 @@ a:hover {
   }
 }
 
+.modal-absolute{
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  width: auto;
+  overflow: visible;
+}
+
+
+.bg-card{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+}
 .text-def {
   //display: block;
   color: white;
@@ -358,6 +380,16 @@ a[data-tooltip][data-placement="top"]::after {
   width: 80px;
   height: 80px;
 }
+#background{
+  background-color: black;
+}
+
+.no-favorites{
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #e63f3f;
+}
 
 .lds-dual-ring:after {
   content: " ";
@@ -415,17 +447,34 @@ a {
 }
 
 .searchTerm {
-  width: 55%;
-  border-radius: 10px;
-  height: 40px;
-  border: none;
   background-color: #2f0202;
-  font-size: 20px;
-  padding: 20px;
-  //margin: 0 auto;
-  display: block;
-  color: white;
 }
+.dropdown-menu {
+  scrollbar-color: dark;
+  height: 400px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #ff0000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #07e000;
+}
+
 
 html, body {
   margin: 0;
@@ -439,7 +488,7 @@ html, body {
   position: relative;
   display: block;
   width: 800px;
-  height: 350px;
+  height: auto;
   margin: 100px auto;
   overflow: hidden;
   border-radius: 10px;
@@ -449,7 +498,9 @@ html, body {
     transform: scale(1.02);
     transition: all 0.4s;
   }
-
+Button{
+  margin: 10px;
+}
   .info_section {
     position: relative;
     width: 100%;
@@ -465,15 +516,15 @@ html, body {
       //height: 40%;
       padding-bottom: 10px;
 
-      h1 {
+      h2 {
         color: #fff;
         font-weight: 400;
         height: 55px;
         padding-top: 1px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
 
-      h4 {
+      h5 {
         color: #9ac7fa;
         font-weight: 400;
       }
@@ -564,6 +615,7 @@ strong {
 .colorB {
   color: #9ac7fa;
 }
+
 
 .type {
   display: inline-block;
