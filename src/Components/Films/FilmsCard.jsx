@@ -70,6 +70,8 @@ export default function FilmsCard() {
             <Container fluid={"md"}>
                 <Row>
                     <InputGroup>
+                        <Button className="btn-fav" variant="outline-success" onClick={() => setLgShow(true)}>My
+                            Favorites</Button>
                         <FormControl
                             className="searchTerm"
                             size={"lg"}
@@ -79,17 +81,14 @@ export default function FilmsCard() {
                             aria-label="Search movie"
                             aria-describedby="basic-addon2"
                         />
-                        <select name="films" id="films" onChange={handleSelect}>
+                        <select name="films" id="filmsGen" onChange={handleSelect}>
                             <option value={defaultGenre}>
                                 {defaultGenre}
                             </option>
                             {filmGenre.map((genre, id) => {
-                                return (<option value={id} key={id}>{genre}</option>);
+                                return (<option id="option" value={id} key={id}>{genre}</option>);
                             })}
                         </select>
-
-                        <Button className="btn-fav" variant="outline-success" onClick={() => setLgShow(true)}>My
-                            Favorites</Button>
                     </InputGroup>
                 </Row>
             </Container>
@@ -97,7 +96,8 @@ export default function FilmsCard() {
             {!searchTerm.length ?
                 <Pagination filmsPerPage={filmsPerPage} totalFilms={films.length} paginate={paginate}/>
                 : <NothingFounded/>}
-            {!results ? <NothingFounded/> : null}
+            {/*{!allFilms.length ? <p>LOADING MOVIES...</p> : null}*/}
+            {!films.length ? <NothingFounded/> : null}
         </>
     );
 }

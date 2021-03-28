@@ -1,15 +1,15 @@
-import React, {useState, useCallback} from "react";
+import React, {useState} from "react";
 import "../Films/FilmsCard.scss";
 import {Link} from "react-router-dom";
 import "../Films/FilmsCard.scss";
-import {Modal, Card, Button, Image} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ModalFavorites from "../Modal/Modal";
 
 const FilmsTemplate = ({currentFilms, filmGenre, lgShow, setLgShow}) => {
 
     const [favorite, setFavorite] = useState([]);
     // const [lgShow, setLgShow] = useState(false);
-
 
 
     const getFavorite = (fav) => {
@@ -19,55 +19,14 @@ const FilmsTemplate = ({currentFilms, filmGenre, lgShow, setLgShow}) => {
             });
         }
         else {
-            alert('Oops... Movie Is Already Added To Favorite List!');
+            alert('Oops... Movie Is Already Added To Modal List!');
         }
     };
 
 
-    const handleRemove = useCallback((id) => {
-        const newFavorite = favorite.filter((item) => item.id !== id);
-        setFavorite(newFavorite);
-        console.log(newFavorite);
-    }, [favorite]);
-
-
     return (
         <>
-            <Modal
-                className="modal-absolute"
-                size="sm"
-                show={lgShow}
-                onHide={() => setLgShow(false)}
-                aria-labelledby="example-modal-sizes-title-lg"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-lg">
-                        My Favorite Movies: ({favorite.length})
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body> {!favorite.length ?
-                    <p className="no-favorites">You Have No Favorites Yet!</p> : favorite.map((film) => {
-                        const {
-                            release_date,
-                            id,
-                            backdrop_path,
-                            title
-                        } = film;
-                        return (<Card className="bg-card" key={id}>
-                            <Image variant="top" style={{width: '100%'}}
-                                   src={`http://image.tmdb.org/t/p/original/${backdrop_path}`}/>
-                            <Card.Body className="align-items-center">
-                                <Card.Title
-                                    className="favorite-title ">{title} ({release_date.slice(0, -6)})</Card.Title>
-                            </Card.Body>
-                            <Button variant="outline-danger" type="button" onClick={() => handleRemove(id)}>Remove From
-                                Favorites</Button><br/>
-                            <Link to={`/details/${id}`}>
-                                <Button variant="outline-secondary" type="button">Movie Details</Button>
-                            </Link>
-                            <br/></Card>)
-                    })}</Modal.Body>
-            </Modal>
+            <ModalFavorites favorite={favorite} lgShow={lgShow} setFavorite={setFavorite} setLgShow={setLgShow}/>
             <div className="container">{currentFilms.map((film, i) => {
                 const {
                     id,

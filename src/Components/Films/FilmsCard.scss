@@ -16,8 +16,9 @@ a {
   text-decoration: none;
   color: #5C7FB8
 }
-.btn-fav{
-  margin-left:20px;
+
+.btn-fav {
+  margin-right: 10px;
 }
 
 a:hover {
@@ -53,7 +54,7 @@ a:hover {
   }
 }
 
-.modal-absolute{
+.modal-absolute {
   position: absolute;
   top: 10px;
   left: 0;
@@ -64,13 +65,14 @@ a:hover {
 }
 
 
-.bg-card{
+.bg-card {
   width: 100%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   background-color: white;
 }
+
 .text-def {
   //display: block;
   color: white;
@@ -113,6 +115,7 @@ a:hover {
   border-top-right-radius: 5px;
 
 }
+
 //
 //.hero:before {
 //  content: '';
@@ -144,7 +147,6 @@ a:hover {
 
 .details {
   padding: 323px 0 0 280px;
-
 
 
   .title1 {
@@ -380,11 +382,12 @@ a[data-tooltip][data-placement="top"]::after {
   width: 80px;
   height: 80px;
 }
-#background{
+
+#background {
   background-color: black;
 }
 
-.no-favorites{
+.no-favorites {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
@@ -449,11 +452,13 @@ a {
 .searchTerm {
   background-color: #2f0202;
 }
+
 .dropdown-menu {
   scrollbar-color: dark;
   height: 400px;
   overflow-y: scroll;
 }
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -467,12 +472,40 @@ a {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #ff0000;
+  background: #07e000;
+}
+
+#filmsGen {
+  margin-left: 10px;
+  border-radius: 1px;
+  border: 1px solid #ff0018;
+  color: white;
+  background: transparent;
+  //font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+
+  &:focus {
+    border: 2px solid #07e000;
+  }
+
+  option {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(37, 231, 22);
+
+    &:hover {
+      background-color: #07e000;
+    }
+  }
+
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #07e000;
+  background: #036600;
 }
 
 
@@ -498,9 +531,11 @@ html, body {
     transform: scale(1.02);
     transition: all 0.4s;
   }
-Button{
-  margin: 10px;
-}
+
+  Button {
+    margin: 10px;
+  }
+
   .info_section {
     position: relative;
     width: 100%;
