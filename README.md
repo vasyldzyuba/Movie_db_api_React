@@ -1,5 +1,7 @@
-![MOVIES_PAGE](https://user-images.githubusercontent.com/23003820/113869372-52461280-97b9-11eb-8064-05c8f23272ee.png)
 IT`S MY PET-PROJECT USING REACT.JS. DEVELOPMENT IS STILL IN PROGRESS...
+
+![MOVIES_PAGE](https://user-images.githubusercontent.com/23003820/113869372-52461280-97b9-11eb-8064-05c8f23272ee.png)
+
 
 
 # Getting Started with Create React App
